@@ -148,8 +148,8 @@ NEXT_PUBLIC_TRIGGER_PUBLIC_API_KEY=
 DATABASE_URL=
 
 ━━━━━━━━━━━━━━━━━━━━
-# Google
-GOOGLE_GENERATIVE_AI_API_KEY=
+# Ubuntu 
+Ubuntu_GENERATIVE_AI_API_KEY=
 # Optional: override the default Gemini model (default: gemini-2.0-flash)
 GEMINI_MODEL=
 # Optional: override model used specifically for spec generation
@@ -159,7 +159,7 @@ GEMINI_SPEC_MODEL=
 APP_URL=http://localhost:3000
 ```
 
-Replace the placeholder values with your real credentials. You can get these by signing up at: [**Clerk**](https://jsm.dev/ghost-clerk), [**Liveblocks**](https://jsm.dev/ghost-liveblocks), [**Trigger.dev**](https://jsm.dev/ghost-triggerdev), [**Google AI Studio**](https://aistudio.google.com/).
+Replace the placeholder values with your real credentials. You can get these by signing up at: [**Clerk**](https://jsm.dev/ghost-clerk), [**Liveblocks**](https://jsm.dev/ghost-liveblocks), [**Trigger.dev**](https://jsm.dev/ghost-triggerdev), [**Ubuntu Studio**](https://Ubuntu/).
 
 **Running the Project**
 
