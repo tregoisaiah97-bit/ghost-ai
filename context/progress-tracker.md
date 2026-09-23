@@ -72,3 +72,5 @@ Update this file whenever the current phase, active feature, or implementation s
 - @trigger.dev/sdk ^4.4.4 installed. trigger.config.ts reads project ref from TRIGGER_PROJECT_REF env var. TRIGGER_SECRET_KEY must be set in .env.local for triggering tasks from server code. Run `npx trigger.dev@latest dev` for local development; deploy with `npx trigger.dev@latest deploy`.
 - Prisma 7.8.0 — generated client goes to app/generated/prisma/; import PrismaClient from @/app/generated/prisma/client (no index.ts in v7). Constructor always requires { adapter } argument. @prisma/adapter-pg used for all connections.
 - prisma.config.ts uses schema: "prisma/" (multi-file schema) and reads DATABASE_URL from .env via dotenv.
+- CI: `.github/workflows/ci.yml` runs on push to main and on PRs — `npm ci`, lint, `next typegen` + `tsc --noEmit`, `next build`. No secrets needed; the build succeeds without env vars. `package-lock.json` is committed so `npm ci` is reproducible.
+- `.trigger/` (Trigger.dev local dev build output) is gitignored and excluded from ESLint.

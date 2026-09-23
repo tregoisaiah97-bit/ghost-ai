@@ -114,8 +114,9 @@ export function AiSidebar({ isOpen, onClose, roomId, projectId }: AiSidebarProps
   const chatScrollRef = useRef<HTMLDivElement>(null)
 
   // Spec state
-  const [specs, setSpecs] = useState<SpecItem[]>([])
-  const [specsLoading, setSpecsLoading] = useState(false)
+  // null until the first fetch resolves; later refreshes keep the current list visible
+  const [specs, setSpecs] = useState<SpecItem[] | null>(null)
+  const specsLoading = specs === null
   const [selectedSpec, setSelectedSpec] = useState<SpecItem | null>(null)
   const [specContent, setSpecContent] = useState<string | null>(null)
   const [specContentLoading, setSpecContentLoading] = useState(false)
@@ -150,12 +151,10 @@ export function AiSidebar({ isOpen, onClose, roomId, projectId }: AiSidebarProps
   }, [])
 
   const fetchSpecs = useCallback(() => {
-    setSpecsLoading(true)
     fetch(`/api/projects/${projectId}/specs`)
       .then((res) => (res.ok ? res.json() : []))
       .then((data: unknown) => setSpecs(Array.isArray(data) ? (data as SpecItem[]) : []))
       .catch(() => setSpecs([]))
-      .finally(() => setSpecsLoading(false))
   }, [projectId])
 
   // Fetch specs when sidebar opens
